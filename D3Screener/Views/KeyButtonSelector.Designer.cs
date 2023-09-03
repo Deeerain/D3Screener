@@ -1,6 +1,6 @@
 ﻿namespace D3Screener.Views
 {
-    partial class SettingsView
+    partial class KeyButtonSelector
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,30 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            propertyGrid1 = new PropertyGrid();
+            gb = new GroupBox();
+            comboBox1 = new ComboBox();
+            gb.SuspendLayout();
             SuspendLayout();
             // 
-            // propertyGrid1
+            // gb
             // 
-            propertyGrid1.Dock = DockStyle.Fill;
-            propertyGrid1.Location = new Point(0, 0);
-            propertyGrid1.Name = "propertyGrid1";
-            propertyGrid1.SelectedObject = this;
-            propertyGrid1.Size = new Size(318, 359);
-            propertyGrid1.TabIndex = 0;
+            gb.AutoSize = true;
+            gb.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            gb.Controls.Add(comboBox1);
+            gb.Dock = DockStyle.Fill;
+            gb.Location = new Point(0, 0);
+            gb.Name = "gb";
+            gb.Padding = new Padding(5);
+            gb.Size = new Size(247, 57);
+            gb.TabIndex = 0;
+            gb.TabStop = false;
+            gb.Text = "groupBox1";
             // 
-            // SettingsView
+            // comboBox1
+            // 
+            comboBox1.Dock = DockStyle.Fill;
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(5, 21);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(237, 23);
+            comboBox1.TabIndex = 0;
+            // 
+            // KeyButtonSelector
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(propertyGrid1);
-            Name = "SettingsView";
-            Size = new Size(318, 359);
+            Controls.Add(gb);
+            Name = "KeyButtonSelector";
+            Size = new Size(247, 57);
+            gb.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private PropertyGrid propertyGrid1;
+        private GroupBox gb;
+        private ComboBox comboBox1;
     }
 }

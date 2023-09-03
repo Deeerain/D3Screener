@@ -59,7 +59,7 @@
             mainTabPage.Location = new Point(4, 24);
             mainTabPage.Name = "mainTabPage";
             mainTabPage.Padding = new Padding(3);
-            mainTabPage.Size = new Size(792, 400);
+            mainTabPage.Size = new Size(323, 400);
             mainTabPage.TabIndex = 0;
             mainTabPage.Text = "Главная";
             mainTabPage.UseVisualStyleBackColor = true;
@@ -83,6 +83,7 @@
             Controls.Add(statusBar);
             Name = "MainForm";
             Text = "D3Screener";
+            TopMost = true;
             tabControl1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

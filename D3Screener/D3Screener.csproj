@@ -7,9 +7,36 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Configurations>Debug;Releas</Configurations>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <Title>D3Screener</Title>
+    <Company>Deerain`s</Company>
+    <Product>D3Screener</Product>
+    <RepositoryUrl>https://github.com/Deeerain/D3Screener</RepositoryUrl>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Screener.cs~RFd39f4b.TMP" />
     <None Remove="Views\ScreenerView.resx~RFc43416.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

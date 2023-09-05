@@ -2,6 +2,17 @@
 {
     public partial class KeyButtonSelector : UserControl
     {
+        public KeyButtonSelector()
+        {
+            InitializeComponent();
+            comboBox1.SelectedValueChanged += ComboBox1_SelectedValueChanged;
+        }
+
+        private void ComboBox1_SelectedValueChanged(object? sender, EventArgs e)
+        {
+            SelectedValueChanged?.Invoke(this, e);
+        }
+
         public string Lable
         {
             get => gb.Text;
@@ -25,9 +36,18 @@
             set => comboBox1.SelectedIndex = value;
         }
 
-        public KeyButtonSelector()
+        public object DataSource
         {
-            InitializeComponent();
+            get => comboBox1.DataSource;
+            set => comboBox1.DataSource = value;
         }
+
+        public string DisplayMember
+        {
+            get => comboBox1.DisplayMember;
+            set => comboBox1.DisplayMember = value;
+        }
+
+        public event EventHandler? SelectedValueChanged;
     }
 }

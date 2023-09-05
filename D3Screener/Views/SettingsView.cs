@@ -7,6 +7,7 @@ namespace D3Screener.Views
         public SettingsView()
         {
             InitializeComponent();
+
             propertyGrid1.SelectedObject = CustomSettings.Default;
             propertyGrid1.PropertyValueChanged += PropertyGrid1_PropertyValueChanged;
         }

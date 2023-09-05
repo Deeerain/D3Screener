@@ -31,8 +31,12 @@
             statusBar = new StatusStrip();
             tabControl1 = new TabControl();
             mainTabPage = new TabPage();
+            screenerView1 = new Views.ScreenerView();
             settingsTabPage = new TabPage();
+            settingsView1 = new Views.SettingsView();
             tabControl1.SuspendLayout();
+            mainTabPage.SuspendLayout();
+            settingsTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // statusBar
@@ -56,6 +60,7 @@
             // 
             // mainTabPage
             // 
+            mainTabPage.Controls.Add(screenerView1);
             mainTabPage.Location = new Point(4, 24);
             mainTabPage.Name = "mainTabPage";
             mainTabPage.Padding = new Padding(3);
@@ -64,8 +69,19 @@
             mainTabPage.Text = "Главная";
             mainTabPage.UseVisualStyleBackColor = true;
             // 
+            // screenerView1
+            // 
+            screenerView1.DataSource = null;
+            screenerView1.DisplayMember = "";
+            screenerView1.Dock = DockStyle.Fill;
+            screenerView1.Location = new Point(3, 3);
+            screenerView1.Name = "screenerView1";
+            screenerView1.Size = new Size(317, 394);
+            screenerView1.TabIndex = 0;
+            // 
             // settingsTabPage
             // 
+            settingsTabPage.Controls.Add(settingsView1);
             settingsTabPage.Location = new Point(4, 24);
             settingsTabPage.Name = "settingsTabPage";
             settingsTabPage.Padding = new Padding(3);
@@ -73,6 +89,14 @@
             settingsTabPage.TabIndex = 1;
             settingsTabPage.Text = "Настройки";
             settingsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // settingsView1
+            // 
+            settingsView1.Dock = DockStyle.Fill;
+            settingsView1.Location = new Point(3, 3);
+            settingsView1.Name = "settingsView1";
+            settingsView1.Size = new Size(317, 394);
+            settingsView1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -85,6 +109,8 @@
             Text = "D3Screener";
             TopMost = true;
             tabControl1.ResumeLayout(false);
+            mainTabPage.ResumeLayout(false);
+            settingsTabPage.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -95,5 +121,7 @@
         private TabControl tabControl1;
         private TabPage mainTabPage;
         private TabPage settingsTabPage;
+        private Views.ScreenerView screenerView1;
+        private Views.SettingsView settingsView1;
     }
 }

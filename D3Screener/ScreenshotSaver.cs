@@ -1,4 +1,5 @@
 ﻿using System.Drawing.Imaging;
+using System.IO;
 
 namespace D3Screener
 {

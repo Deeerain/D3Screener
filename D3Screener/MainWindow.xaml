@@ -1,0 +1,38 @@
+﻿<Window x:Class="D3Screener.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:D3Screener"
+        mc:Ignorable="d"
+        FontFamily="Arial"
+        Title="MainWindow" Height="400" Width="300">
+    <Grid
+        Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel
+            Grid.Row="0">
+            <Label Content="Задержка перед стартом" />
+            <TextBox
+                x:Name="startDelayInput"/>
+            <Label Content="Задержка между скриншотами" />
+            <TextBox
+                x:Name="screenshotDelayInput"/>
+            <Label Content="Клавиша" />
+            <ComboBox
+                x:Name="keyInput"
+                IsEditable="True" />
+            <Label Content="Кол-во скриншотов" />
+            <TextBox
+                x:Name="screenshotCountInput"/>
+        </StackPanel>
+        <Button
+            x:Name="startButton"
+            Grid.Row="1"
+            Content="Начать"></Button>
+    </Grid>
+</Window>

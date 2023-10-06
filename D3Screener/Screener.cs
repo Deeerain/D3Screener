@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Windows;
 
 namespace D3Screener
 {
@@ -23,9 +24,9 @@ namespace D3Screener
             _key = key;
         }
 
-        public void Start(Form mainWindow)
+        public void Start(Window mainWindow)
         {
-            mainWindow.WindowState = FormWindowState.Minimized;
+            mainWindow.WindowState = WindowState.Minimized;
             Task.Delay(_startDelay).Wait();
 
             for(int i = 0; i < _screenCount; i++)
@@ -38,16 +39,16 @@ namespace D3Screener
 
             }
 
-            mainWindow.WindowState = FormWindowState.Normal;
+            mainWindow.WindowState = WindowState.Normal;
         }
 
         private void TakeScreenShot()
         {
-            var bounds = Screen.GetBounds(Point.Empty);
+            var bounds = Screen.GetBounds(System.Drawing.Point.Empty);
 
             var btmp = new Bitmap(bounds.Width, bounds.Height);
             var g = Graphics.FromImage(btmp);
-            g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
+            g.CopyFromScreen(System.Drawing.Point.Empty, System.Drawing.Point.Empty, bounds.Size);
             _bitmaps.Add(btmp);
         }
 

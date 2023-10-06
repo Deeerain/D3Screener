@@ -28,7 +28,7 @@ namespace D3Screener
                 screenerView1.ScreenCount,
                 screenerView1.SelectedButton);
 
-            screener.Start(Program.MainForm);
+            //screener.Start(App.Current.MainWindow.MainForm);
 
             var saver = new ScreenshotSaver(CustomSettings.Default.SaveFolderPath, screener.GetBitmaps());
             saver.Save();

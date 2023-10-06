@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Drawing.Design;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace D3Screener.Properties

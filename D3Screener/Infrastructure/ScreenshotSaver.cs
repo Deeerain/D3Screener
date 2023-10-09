@@ -1,7 +1,7 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
 
-namespace D3Screener
+namespace D3Screener.Infrastructure
 {
     internal class ScreenshotSaver
     {

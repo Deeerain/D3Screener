@@ -1,6 +1,5 @@
-﻿using D3Screener.Properties;
-using D3Screener.Views;
-using System.IO;
+﻿using D3Screener.Infrastructure;
+using D3Screener.Properties;
 using System.Windows;
 
 namespace D3Screener
@@ -19,7 +18,6 @@ namespace D3Screener
             Topmost = true;
 
             Loaded += MainWindow_Loaded;
-            startButton.Click += StartButton_Click;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -37,8 +35,7 @@ namespace D3Screener
 
             var saveFolderPath = CustomSettings.Default.SaveFolderPath;
 
-            if (saveFolderPath == null)
-                saveFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            saveFolderPath ??= Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
             var saver = new ScreenshotSaver(saveFolderPath, screener.GetBitmaps());
             saver.Save();

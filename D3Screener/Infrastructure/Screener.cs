@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows;
 
-namespace D3Screener
+namespace D3Screener.Infrastructure
 {
     internal class Screener
     {
@@ -16,7 +16,7 @@ namespace D3Screener
 
         private readonly List<Bitmap> _bitmaps = new();
 
-        public Screener(int startDelay, int screenDelay,int screenCount, Keys key)
+        public Screener(int startDelay, int screenDelay, int screenCount, Keys key)
         {
             _startDelay = startDelay;
             _screenDelay = screenDelay;
@@ -29,7 +29,7 @@ namespace D3Screener
             mainWindow.WindowState = WindowState.Minimized;
             Task.Delay(_startDelay).Wait();
 
-            for(int i = 0; i < _screenCount; i++)
+            for (int i = 0; i < _screenCount; i++)
             {
                 TakeScreenShot();
 
@@ -66,6 +66,6 @@ namespace D3Screener
         internal static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
-        private static extern Int32 SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
     }
 }

@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:modelView="clr-namespace:D3Screener.ViewModel"
         xmlns:local="clr-namespace:D3Screener"
         mc:Ignorable="d"
         FontFamily="Arial"
         Title="MainWindow" Height="400" Width="300">
+    <Window.DataContext>
+        <modelView:MainViewModel />
+    </Window.DataContext>
     <Grid
         Margin="10">
         <Grid.RowDefinitions>
@@ -18,21 +22,28 @@
             Grid.Row="0">
             <Label Content="Задержка перед стартом" />
             <TextBox
-                x:Name="startDelayInput"/>
+                x:Name="startDelayInput"
+                InputScope="Digits"
+                Text="{Binding StartDelay}"/>
             <Label Content="Задержка между скриншотами" />
             <TextBox
-                x:Name="screenshotDelayInput"/>
+                x:Name="screenshotDelayInput"
+                Text="{Binding ScreenshotDelay}"/>
             <Label Content="Клавиша" />
             <ComboBox
                 x:Name="keyInput"
-                IsEditable="True" />
+                IsEditable="True"
+                ItemsSource="{Binding Keys}"
+                SelectedItem="{Binding SelectedKey}"/>
             <Label Content="Кол-во скриншотов" />
             <TextBox
-                x:Name="screenshotCountInput"/>
+                x:Name="screenshotCountInput"
+                Text="{Binding ScreenCount}"/>
         </StackPanel>
         <Button
             x:Name="startButton"
             Grid.Row="1"
-            Content="Начать"></Button>
+            Content="Начать"
+            Command="{Binding StartWorkCommand}"></Button>
     </Grid>
 </Window>

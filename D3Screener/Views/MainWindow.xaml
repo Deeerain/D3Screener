@@ -24,7 +24,7 @@
             <TextBox
                 x:Name="startDelayInput"
                 InputScope="Digits"
-                Text="{Binding StartDelay}"/>
+                Text="{Binding StartDelay, ValidatesOnDataErrors=True}"/>
             <Label Content="Задержка между скриншотами" />
             <TextBox
                 x:Name="screenshotDelayInput"
@@ -34,11 +34,11 @@
                 x:Name="keyInput"
                 IsEditable="True"
                 ItemsSource="{Binding Keys}"
-                SelectedItem="{Binding SelectedKey}"/>
+                SelectedItem="{Binding SelectedKey, ValidatesOnDataErrors=True}"/>
             <Label Content="Кол-во скриншотов" />
             <TextBox
                 x:Name="screenshotCountInput"
-                Text="{Binding ScreenCount}"/>
+                Text="{Binding ScreenCount, ValidatesOnDataErrors=True}"/>
         </StackPanel>
         <Button
             x:Name="startButton"

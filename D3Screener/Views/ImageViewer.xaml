@@ -27,8 +27,11 @@
             ItemsSource="{Binding Images}"
             SelectedItem="{Binding SelectedImage, Mode=TwoWay}">
             <ListView.ItemTemplate>
-                <DataTemplate DataType="BitmapImage">
-                    <Image Source="{Binding BaseUri}" />
+                <DataTemplate>
+                    <Image
+                        Width="200"
+                        Height="200"
+                        Source="{Binding AbsoluteUri}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -48,9 +51,9 @@
             </Grid.ColumnDefinitions>
 
             <Image
-                Grid.Column="0"
+                Grid.Row="0"
                 Grid.ColumnSpan="3"
-                Source="{Binding SelectedImage, Mode=TwoWay}" />
+                Source="{Binding SelectedImage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Button
                 Grid.Row="1"

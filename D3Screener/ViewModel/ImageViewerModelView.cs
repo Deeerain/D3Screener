@@ -1,15 +1,16 @@
 ﻿using D3Screener.Infrastructure;
 using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 
 namespace D3Screener.ViewModel
 {
     public class ImageViewerModelView: NotifiedObject
     {
-        private Bitmap _selectedImage;
+        private Uri _selectedImage;
 
-        public ObservableCollection<Bitmap> Images { get; set; }
+        public ObservableCollection<Uri> Images { get; set; }
 
-        public Bitmap SelectedImage
+        public Uri SelectedImage
         {
             get => _selectedImage;
             set => SetProperty(ref _selectedImage, value);
@@ -17,7 +18,7 @@ namespace D3Screener.ViewModel
 
         public ImageViewerModelView()
         {
-            Images = new ObservableCollection<Bitmap>();
+            Images = new ObservableCollection<Uri>();
         }
     }
 }

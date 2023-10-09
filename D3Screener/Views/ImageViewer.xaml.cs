@@ -1,4 +1,5 @@
 ﻿using D3Screener.ViewModel;
+using System.IO;
 using System.Windows;
 
 namespace D3Screener.Views
@@ -8,14 +9,14 @@ namespace D3Screener.Views
     /// </summary>
     public partial class ImageViewer : Window
     {
-        public ImageViewer(Bitmap[] bitmas)
+        public ImageViewer(string folderPath)
         {
             InitializeComponent();
             var imageViewerModelView = new ImageViewerModelView();
 
-            foreach(var bitmap in bitmas)
+            foreach(var image in Directory.GetFiles(folderPath))
             {
-                imageViewerModelView.Images.Add(bitmap);
+                imageViewerModelView.Images.Add(new Uri(image));
             }
             DataContext = imageViewerModelView;
         }

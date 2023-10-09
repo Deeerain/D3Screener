@@ -47,8 +47,10 @@ namespace D3Screener.ViewModel
             _model.Save();
             var screener = new Screener(StartDelay, ScreenshotDelay, ScreenCount, SelectedKey);
             screener.Start(App.Current.MainWindow);
-            var window = new ImageViewer(screener.GetBitmaps());
+            var window = new ImageViewer(screener.LastTempFolderPath);
+            App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
             window.ShowDialog();
+            App.Current.MainWindow.WindowState = System.Windows.WindowState.Normal;
         }
     }
 }

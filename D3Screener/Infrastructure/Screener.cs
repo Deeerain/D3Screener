@@ -1,4 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿using D3Screener.Infrastructure.Utils;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace D3Screener.Infrastructure
@@ -9,6 +12,8 @@ namespace D3Screener.Infrastructure
         private readonly int _screenDelay;
         private readonly int _screenCount;
         private readonly Keys _key;
+
+        private string _lastTempFolder;
 
         private const int WM_KEYDOWN = 0x0100;
         private const int WM_KEYUP = 0x0101;
@@ -23,6 +28,8 @@ namespace D3Screener.Infrastructure
             _screenCount = screenCount;
             _key = key;
         }
+
+        public string LastTempFolderPath => _lastTempFolder;
 
         public void Start(Window mainWindow)
         {
@@ -39,7 +46,17 @@ namespace D3Screener.Infrastructure
 
             }
 
+            SaveImagesToTempFolderPath();
+
             mainWindow.WindowState = WindowState.Normal;
+        }
+
+        private void SaveImagesToTempFolderPath()
+        {
+            _lastTempFolder = PathUtils.GetTemplateFolderPathByAssembly();
+
+            foreach (var bitmap in _bitmaps)
+                bitmap.Save(Path.Combine(_lastTempFolder, PathUtils.GenereateFileNameByTime(DateTime.Now, "png")));
         }
 
         private void TakeScreenShot()

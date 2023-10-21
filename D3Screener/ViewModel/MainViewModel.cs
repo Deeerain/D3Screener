@@ -1,7 +1,11 @@
 ﻿using D3Screener.Infrastructure;
 using D3Screener.Infrastructure.Commands;
+using D3Screener.Infrastructure.ScreenerActions;
+using D3Screener.Infrastructure.Utils;
 using D3Screener.Model;
 using D3Screener.Views;
+using Microsoft.Extensions.DependencyInjection;
+using System.Drawing.Imaging;
 using System.Windows.Input;
 
 namespace D3Screener.ViewModel
@@ -14,8 +18,15 @@ namespace D3Screener.ViewModel
         public MainViewModel()
         {
             _model = new WorkSettings();
+            var screenshotSaver = Program.AppHost?.Services.GetService<IScreenshotSaver>();
 
-            StartWorkCommand = new RelayCommand(StartWork);
+            var workFlow = new ScreenerWorkFlow(
+                new ScreenshotAction(screenshotSaver, PathUtils.GetTemplateFolderPathByAssembly(), 
+                    DateTime.Now.ToFileTime().ToString(), ImageFormat.Jpeg),
+                new SendKeyAction(SelectedKey),
+                new DelayAction(ScreenshotDelay)); ;
+
+            StartWorkCommand = new StartWorkFlowCommand(workFlow, _model.ScreenCount);
         }
 
         public int StartDelay
@@ -40,17 +51,6 @@ namespace D3Screener.ViewModel
         {
             get => _model.ScreenCount;
             set => _model.ScreenCount = value;
-        }
-
-        private void StartWork(object? o)
-        {
-            _model.Save();
-            var screener = new Screener(StartDelay, ScreenshotDelay, ScreenCount, SelectedKey);
-            screener.Start(App.Current.MainWindow);
-            var window = new ImageViewer(screener.LastTempFolderPath);
-            App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
-            window.ShowDialog();
-            App.Current.MainWindow.WindowState = System.Windows.WindowState.Normal;
         }
     }
 }

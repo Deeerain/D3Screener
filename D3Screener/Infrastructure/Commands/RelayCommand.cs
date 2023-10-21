@@ -2,7 +2,7 @@
 
 namespace D3Screener.Infrastructure.Commands
 {
-    internal class RelayCommand : ICommand
+    internal class RelayCommand : Command
     {
         private readonly Action<object?> _execute;
         private readonly Func<object?, bool>? _canExecute;
@@ -13,9 +13,7 @@ namespace D3Screener.Infrastructure.Commands
             _canExecute = canExecute;
         }
 
-        public event EventHandler? CanExecuteChanged;
-
-        public bool CanExecute(object? parameter)
+        public override bool CanExecute(object? parameter)
         {
             if (_canExecute != null)
                 return _canExecute(parameter);
@@ -23,7 +21,7 @@ namespace D3Screener.Infrastructure.Commands
             return true;
         }
 
-        public void Execute(object? parameter)
+        public override void Execute(object? parameter)
         {
             _execute(parameter);
         }

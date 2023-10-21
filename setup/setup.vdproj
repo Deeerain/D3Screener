@@ -13,6 +13,18 @@
 "SccProvider" = "8:"
     "Hierarchy"
     {
+        "Entry"
+        {
+        "MsmKey" = "8:_5AB10A7B1DCC42B2A7E8500B3E33BF04"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BB5CE971359B48A588BD380FEC7172D9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -31,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -38,7 +58,7 @@
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
         "OutputFilename" = "8:Release\\setup.msi"
-        "PackageFilesAs" = "3:2"
+        "PackageFilesAs" = "3:1"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
         "Compression" = "3:2"
@@ -47,6 +67,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "dd"
         {
@@ -63,6 +99,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -94,6 +138,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5AB10A7B1DCC42B2A7E8500B3E33BF04"
+            {
+            "SourcePath" = "8:..\\D3Screener\\AppIcon.ico"
+            "TargetName" = "8:AppIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_C1236F9BE57940B88CD8C092BC9D5AD8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -151,7 +215,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:D3Screener"
         "ProductCode" = "8:{C0D86044-0442-46CB-9C0D-7C7E58A68F10}"
-        "PackageCode" = "8:{DC9924EA-D128-4B2E-9F4E-1DC5929EF2EA}"
+        "PackageCode" = "8:{5B11927A-A4BE-4B86-8CBA-382AB04874E4}"
         "UpgradeCode" = "8:{1E34A79F-2731-4429-9F96-EAB61A2D0DF8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -271,6 +335,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AEDD9CCAA432452E906E51D986497CFA"
+            {
+            "Name" = "8:Shortcut to %sUser's Programs Menu"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_88B2E20A5F8C40788A8F46F6E369CF3C"
+            "Folder" = "8:_88B2E20A5F8C40788A8F46F6E369CF3C"
+            "WorkingFolder" = "8:_88B2E20A5F8C40788A8F46F6E369CF3C"
+            "Icon" = "8:_5AB10A7B1DCC42B2A7E8500B3E33BF04"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CE0AF823AECD43F2B0DAE3A1A1CBB066"
+            {
+            "Name" = "8:Shortcut to %sUser's Desktop"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_8593994D943E4358B8C22B7ADE9D222C"
+            "Folder" = "8:_8593994D943E4358B8C22B7ADE9D222C"
+            "WorkingFolder" = "8:_8593994D943E4358B8C22B7ADE9D222C"
+            "Icon" = "8:_5AB10A7B1DCC42B2A7E8500B3E33BF04"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -670,9 +762,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F9CBC5EBABB2428F9EAF2B9B88400213"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BB5CE971359B48A588BD380FEC7172D9"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\D3Screener\\obj\\Releas\\net6.0-windows\\D3Screener.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C1236F9BE57940B88CD8C092BC9D5AD8"
@@ -690,7 +782,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputConfiguration" = "8:Releas|Any CPU"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{12104790-D515-407E-9217-D318DC65DD6B}"
             "ShowKeyOutput" = "11:TRUE"

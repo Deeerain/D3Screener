@@ -25,7 +25,10 @@
             Grid.Row="0"
             Grid.RowSpan="2"
             ItemsSource="{Binding Images}"
-            SelectedItem="{Binding SelectedImage, Mode=TwoWay}">
+            SelectedItem="{Binding SelectedImage, Mode=TwoWay}"
+            SelectedIndex="{Binding SelectedImageIndex, Mode=TwoWay}"
+            VirtualizingPanel.IsVirtualizing="True"
+            VirtualizingPanel.VirtualizationMode="Standard">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Image
@@ -58,10 +61,17 @@
             <Button
                 Grid.Row="1"
                 Grid.Column="3"
-                Content="Вперед" />
+                Content="Вперед"
+                Command="{Binding NextImageCommand}"/>
             <Button
                 Grid.Row="1"
-                Content="Назад" />
+                Content="Назад"
+                Command="{Binding PreviousImageCommand}"/>
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Content="Удалить"
+                Command="{Binding DeleteImageCommand}" />
         </Grid>
     </Grid>
 </Window>

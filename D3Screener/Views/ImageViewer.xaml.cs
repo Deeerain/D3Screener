@@ -9,16 +9,27 @@ namespace D3Screener.Views
     /// </summary>
     public partial class ImageViewer : Window
     {
-        public ImageViewer(string folderPath)
+        public string FolderPath { get; set; }
+
+        private ImageViewerModelView _imageModelView;
+
+        public ImageViewer()
         {
             InitializeComponent();
-            var imageViewerModelView = new ImageViewerModelView();
 
-            foreach(var image in Directory.GetFiles(folderPath))
+            _imageModelView = new ImageViewerModelView();
+            DataContext = _imageModelView;
+
+            Loaded += ImageViewer_Loaded;
+
+        }
+
+        private void ImageViewer_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (var image in Directory.GetFiles(FolderPath))
             {
-                imageViewerModelView.Images.Add(new Uri(image));
+                _imageModelView.Images.Add(new Uri(image));
             }
-            DataContext = imageViewerModelView;
         }
     }
 }

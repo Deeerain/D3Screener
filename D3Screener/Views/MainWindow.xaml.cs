@@ -20,29 +20,6 @@ namespace D3Screener
             Loaded += MainWindow_Loaded;
         }
 
-        private void StartButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            CustomSettings.Default.Save();
-
-            var screener = new Screener(
-                int.Parse(startDelayInput.Text),
-                int.Parse(screenshotDelayInput.Text),
-                int.Parse(screenshotCountInput.Text),
-                (Keys)keyInput.SelectedItem);
-
-            screener.Start(App.Current.MainWindow);
-
-            var saveFolderPath = CustomSettings.Default.SaveFolderPath;
-
-            saveFolderPath ??= Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-
-            var saver = new ScreenshotSaver(saveFolderPath, screener.GetBitmaps());
-            saver.Save();
-
-            SaveLastValues();
-        }
-
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             LoadLastValues();
